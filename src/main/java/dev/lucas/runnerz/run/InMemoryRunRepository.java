@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class inMemoryRunRepository {
+public class InMemoryRunRepository {
     private List<Run> runs = new ArrayList<>();
 
     List<Run> findAll() {
@@ -35,20 +35,20 @@ public class inMemoryRunRepository {
         runs.removeIf(run -> run.id().equals(id));
     }
 
-//    @PostConstruct
-//    private void init() {
-//        runs.add(new Run(1,
-//                "First Run",
-//                LocalDateTime.now(),
-//                LocalDateTime.now().plusHours(1),
-//                5,
-//                Location.OUTDOOR));
-//
-//        runs.add(new Run(2,
-//                "Second Run",
-//                LocalDateTime.now(),
-//                LocalDateTime.now().plusHours(1),
-//                5,
-//                Location.INDOOR));
-//    }
+    @PostConstruct
+    private void init() {
+       runs.add(new Run(1,
+               "Monday Morning Run",
+               LocalDateTime.now(),
+               LocalDateTime.now().plusMinutes(30),
+               3,
+               Location.INDOOR));
+
+         runs.add(new Run(2,
+               "Tuesday Morning Run",
+               LocalDateTime.now(),
+                 LocalDateTime.now().plusMinutes(30),
+               3,
+               Location.INDOOR));
+    }
 }
